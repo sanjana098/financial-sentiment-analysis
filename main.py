@@ -8,15 +8,7 @@ import numpy as np
 import tensorflow as tf
 from keras.utils import pad_sequences
 
-# import ssl
 import nltk
-
-# try:
-#     _create_unverified_https_context = ssl._create_unverified_context
-# except AttributeError:
-#     pass
-# else:
-#     ssl._create_default_https_context = _create_unverified_https_context
 
 nltk.download('omw-1.4')
 nltk.download('wordnet')
@@ -26,19 +18,17 @@ from nltk.stem import WordNetLemmatizer
 
 categories = ["Negative", "Neutral", "Positive"]
 
-
 def preprocess(x):
-    # Remove lowercase, punctuations, lemmatize
-    
+    maxlen = 52
     lemmatizer = WordNetLemmatizer()
     
     text_lcase = x.lower()
     text_no_punct = text_lcase.translate(str.maketrans('', '', string.punctuation))
     
-    return ' '.join(lemmatizer.lemmatize(t) for t in text_no_punct.split())
+    return ' '.join(lemmatizer.lemmatize(t) for t in text_no_punct.split()[:maxlen])
 
 st.title('Financial sentiment analysis')
-title = st.text_input('Movie title', 'Life of Brian')
+title = st.text_input('Enter a financial news headline', 'Tesla shares have fallen 28% since Elon Musk took over Twitter, lagging other carmakers')
 
 st.write(title)
 
