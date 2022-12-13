@@ -48,3 +48,7 @@ res = model.predict(tokenized_input)
 
 cat = categories[np.argmax(res)]
 st.write(cat)
+st.error('This is an error', icon="🚨")
+st.warning('This is a warning', icon="⚠️")
+st.info('This is a purely informational message', icon="ℹ️")
+st.success('This is a success message!', icon="✅")
