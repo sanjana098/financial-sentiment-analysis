@@ -53,7 +53,7 @@ if category == 0:
 elif category == 1:
     pass
 else:
-
+    pass
 
 st.error('This is an error', icon="🚨")
 st.warning('This is a warning', icon="😐")
