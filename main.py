@@ -49,13 +49,12 @@ res = model.predict(tokenized_input)
 category = np.argmax(res)
 
 if category == 0:
-    pass
+    st.error(title, icon="😣")
 elif category == 1:
-    pass
+    st.warning(title, icon="😐")
 else:
-    pass
+    st.success(title, icon="😊")
 
-st.error('This is an error', icon="🚨")
-st.warning('This is a warning', icon="😐")
-st.info('This is a purely informational message', icon="ℹ️")
-st.success('This is a success message!', icon="✅")
+# st.error('This is an error', icon="🚨")
+# st.warning('This is a warning', icon="😐")
+# st.info('This is a purely informational message', icon="ℹ️")
