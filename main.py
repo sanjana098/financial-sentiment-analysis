@@ -46,9 +46,16 @@ tokenized_input = pad_sequences(tokenized_input, maxlen=52, padding='post')
 
 res = model.predict(tokenized_input)
 
-cat = categories[np.argmax(res)]
-st.write(cat)
+category = np.argmax(res)
+
+if category == 0:
+    pass
+elif category == 1:
+    pass
+else:
+
+
 st.error('This is an error', icon="🚨")
-st.warning('This is a warning', icon="⚠️")
+st.warning('This is a warning', icon="😐")
 st.info('This is a purely informational message', icon="ℹ️")
 st.success('This is a success message!', icon="✅")
